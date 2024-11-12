@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Library Book Search</title>
+</head>
+<body>
+    <input id="input" placeholder="Search for books...">
+    <button onclick="getBooks()">Get Your Books</button>
+    <br>
+    <div id="output"></div>
+
+    <script>
+        function getBooks() {
+            document.getElementById("output").innerHTML = "";  // Clear previous results
+
+            // Fetch books from Open Library API based on search input
+            fetch("https://openlibrary.org/search.json?q=" + document.getElementById("input").value)
+                .then(response => response.json())
+                .then(data => {
+                    const books = data.docs;
+                    
+                    // Loop through the first 20 books in the search result
+                    books.slice(0, 20).forEach(book => {
+                        const title = book.title || "No title available";
+                        const author = book.author_name ? book.author_name[0] : "Unknown author";
+                        const isbn = book.isbn ? book.isbn[0] : null;
+
+                        // If ISBN is available, display the book cover
+                        const coverImage = isbn ? `<img src="https://covers.openlibrary.org/b/isbn/${isbn}-M.jpg" alt="Book Cover">` : "No cover available";
+
+                        // Append the book information to the output div
+                        document.getElementById("output").innerHTML += `
+                            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+                                <h2>${title}</h2>
+                                <p><strong>Author:</strong> ${author}</p>
+                                ${coverImage}
+                            </div>
+                        `;
+                    });
+                })
+                .catch(error => {
+                    document.getElementById("output").innerHTML = "<p>Error fetching books. Please try again later.</p>";
+                    console.error("Error fetching books:", error);
+                });
+        }
+    </script>
+</body>
+</html>

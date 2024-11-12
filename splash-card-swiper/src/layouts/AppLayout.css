@@ -1,0 +1,56 @@
+/* CSS for Grid Background */
+.grid-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(
+            to right, 
+            rgba(255, 255, 255, 0.44) 1px, 
+            transparent 1px
+        ),
+        linear-gradient(
+            to bottom, 
+            rgba(255, 255, 255, 0.44) 1px, 
+            transparent 1px
+        );
+    background-size: 60px 60px; /* Adjust size for desired grid spacing */
+    pointer-events: none;
+    z-index: -0.5;
+}
+
+/* Optional: Adding a subtle overlay effect */
+.grid-background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, transparent, rgba(0, 0, 0, 0.7));
+    pointer-events: none;
+}
+
+/* Royal Blue theme styles */
+.dark-theme {
+    background-color: #4169E1; /* Royal blue as the primary background color */
+    color: #ffffff; /* Light text color for contrast */
+}
+
+.container {
+    position: relative;
+    z-index: 1; /* Ensure main content appears above the grid */
+}
+
+/* Additional styling for header and footer */
+.header, .p-10 {
+    background-color: #2f4db8; /* Darker royal blue shades for header/footer */
+    color: #ffffff;
+}
+
+/* Ensure text contrast in dark mode */
+.text-white {
+    color: #eaeaea;
+}
