@@ -7,11 +7,35 @@ const MyJobs = () => {
   const [searchText, setSearchText] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
+// set current page
+const [currentPage, setCurrentPage] = useState(1);
+const itemsPerPage = 4;
+
   useEffect(() => {
      setIsLoading(true)
      fetch(`http://localhost:5000/myJobs/mwerumaryann@gmail.com`).then(res => res.json()).then(data => {
-        setJobs(data)
-     }) }, [isLoading]);
+        setJobs(data);
+        setIsLoading(false);
+     }) }, [searchText]);
+
+// pagination
+const indexOfLastItem = currentPage * itemsPerPage;
+const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+const currentJobs = jobs.slice(indexOfFirstItem, indexOfLastItem);
+
+// next btn & prev btn
+const nextPage = () => {
+  if(indexOfLastItem < jobs.length){
+      setCurrentPage(currentPage + 1)
+  }
+}
+
+const prevPage = () => {
+    if(currentPage > 1){
+      setCurrentPage(currentPage - 1)
+    }
+}
+
 
   const handleSearch = () => {
     const filter = jobs.filter((job) => job.jobTitle.toLowerCase().indexOf(searchText.toLowerCase()) !== -1)
@@ -83,10 +107,11 @@ const MyJobs = () => {
           </th>
           </tr>
         </thead>
-
-        <tbody>
+        {
+          isLoading ? (<div><p className="flex items-center justify-center h-20">Loading.....</p></div>) : (
+            <tbody>
            {
-            jobs.map((job, index) => (
+            currentJobs.map((job, index) => (
               <tr key={index}>
               <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
                 {index + 1}
@@ -101,7 +126,7 @@ const MyJobs = () => {
                 ${job.minPrice} - ${job.maxPrice}
               </td>
               <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-                 <button><Link to={`/edit-jobs/${job?._id}`}>Edit</Link></button>
+                 <button><Link to={`/jobs/edit-jobs/${job?._id}`}>Edit</Link></button>
               </td>
               <td className="border-t-0 px-3 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
                  <button onClick={() => handleDelete(job._id)} className="bg-red-700 py-2 px-4 text-white rounded-sm">Delete</button>
@@ -109,45 +134,26 @@ const MyJobs = () => {
             </tr>
             ))
            }
-          <tr>
-            <th className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left text-blueGray-700 ">
-              /argon/
-            </th>
-            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 ">
-              4,569
-            </td>
-            <td className="border-t-0 px-6 align-center border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              340
-            </td>
-            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-              46,53%
-            </td>
-            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-              46,53%
-            </td>
-            <td className="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
-              <i className="fas fa-arrow-up text-emerald-500 mr-4"></i>
-              46,53%
-            </td>
-          </tr>
         </tbody>
+          )
+        }       
       </table>
     </div>
   </div>
 </div>
-<footer className="relative pt-8 pb-6 mt-16">
-  <div className="container mx-auto px-4">
-    <div className="flex flex-wrap items-center md:justify-between justify-center">
-      <div className="w-full md:w-6/12 px-4 mx-auto text-center">
-        <div className="text-sm text-blueGray-500 font-semibold py-1">
-          Made with <a href="https://www.creative-tim.com/product/notus-js" className="text-blueGray-500 hover:text-gray-800" target="_blank">Notus JS</a> by <a href="https://www.creative-tim.com" className="text-blueGray-500 hover:text-blueGray-800" target="_blank"> Creative Tim</a>.
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
+{/*pagination*/}
+<div className="flex justify-center text-black space-x-8 mb-8">
+    {
+      currentPage > 1 && (
+        <button onClick={prevPage} className="hover:underline">Previous</button>
+      )
+    }
+    {
+       indexOfLastItem < jobs.length && (
+          <button onClick={nextPage} className="hover:underline">Next</button>
+       )
+    }
+</div>
 </section>
     </div>
   )

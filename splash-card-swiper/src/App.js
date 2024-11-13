@@ -19,6 +19,9 @@ import PostJob from './pages/post-job';
 import SavedJobs from './pages/saved-jobs';
 import MyJobs from './pages/my-jobs';
 import About from './pages/about';
+import Salary from './pages/salary';
+import UpdateJobs from './pages/UpdateJobs';
+
 
 const App = () => {
   return (
@@ -65,7 +68,9 @@ const App = () => {
                   <Route path="post-job" element={<PostJob />} />
                   <Route path="saved-job" element={<SavedJobs />} />
                   <Route path="my-jobs" element={<MyJobs />} />
-              </Route>
+                  <Route path="salary" element={<Salary />} />
+                  <Route path="edit-jobs/:id" element={<UpdateJobs />} />
+                </Route>
 
               {/* Add routes for Resume and Contact pages if needed */}
               <Route path="/resume" element={<div>Resume Page</div>} />

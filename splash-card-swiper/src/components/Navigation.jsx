@@ -12,6 +12,8 @@ const Navigation = () => {
     {path: "/jobs/my-jobs", title: "My Jobs"},
     {path: "/jobs/salary", title: "Salary Estimate"},
     {path: "/jobs/post-job", title: "Post A Job"},
+    {path: "/jobs/edit-jobs/:id", title: "Edit"},
+
   ]
   return (
     <header className='max-w-screen-2xl container mx-auto xl:px-24 px-4'>
