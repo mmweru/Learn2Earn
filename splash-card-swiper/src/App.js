@@ -21,6 +21,7 @@ import MyJobs from './pages/my-jobs';
 import About from './pages/about';
 import Salary from './pages/salary';
 import UpdateJobs from './pages/UpdateJobs';
+import Resume from './components/ResumePage';
 
 
 const App = () => {
@@ -56,6 +57,8 @@ const App = () => {
               {/* Book Collection Page */}
               <Route path="/book-collection" element={<BookCollection />} />
 
+              <Route path="/resume" element={<Resume />} />
+
               {/* Jobs Section with nested routes */}
               <Route
                 path="/jobs"
@@ -73,7 +76,6 @@ const App = () => {
                 </Route>
 
               {/* Add routes for Resume and Contact pages if needed */}
-              <Route path="/resume" element={<div>Resume Page</div>} />
               <Route path="/contact" element={<div>Contact Page</div>} />
             </Routes>
           </main>
