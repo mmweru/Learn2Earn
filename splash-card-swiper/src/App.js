@@ -131,12 +131,7 @@ const App = () => {
           </Routes>
         </main>
 
-        {/* Footer */}
-        <footer className="bg-gray-800 text-white text-center py-4">
-          <div className="container mx-auto text-sm">
-            &copy; {new Date().getFullYear()} CareerHub. All rights reserved.
-          </div>
-        </footer>
+
       </div>
     </Router>
   );
