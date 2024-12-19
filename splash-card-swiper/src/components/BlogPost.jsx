@@ -32,8 +32,37 @@ const BlogPost = () => {
         <meta name="twitter:description" content="Boost your career with free training and job placement programs. Find resources near you to improve your skills and secure a job." />
         <meta name="twitter:image" content="URL_TO_IMAGE" />
         <meta name="twitter:card" content="summary_large_image" />
+        
+        {/* Add JSON-LD for Article Schema */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": "How to Access Free Training and Job Placement Near Me: A Game Changer for Career Growth",
+            "description": "Explore how free training and job placement programs can boost your career. Learn about technical and soft skills, certifications, resume tips, and finding local opportunities.",
+            "author": {
+              "@type": "Person",
+              "name": "Maryann Mweru" // Replace with your actual name
+            },
+            "datePublished": "2024-12-19",
+            "dateModified": "2024-12-19",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://www.learn2earn.study/blog/blog-3-free-training-job-placement"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Learn2Earn",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "/192.png"
+              }
+            },
+            "image": "https://www.learn2earn.study/images/logo.png" // Replace with the actual blog image URL
+          })}
+        </script>
       </Helmet>
- 
+
       <h1>Blog Post: How to Access Free Training and Job Placement</h1>
       <ReactMarkdown
         children={content}
