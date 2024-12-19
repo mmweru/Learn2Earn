@@ -18,6 +18,7 @@ import About from "./pages/about";
 import Salary from "./pages/salary";
 import UpdateJobs from "./pages/UpdateJobs";
 import Resume from "./components/ResumePage";
+import BlogPost from './components/BlogPost'; // Adjust path as needed
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -109,6 +110,8 @@ const App = () => {
 
             {/* Resume Page */}
             <Route path="/resume" element={<Resume />} />
+
+            <Route path="/blog/blog-3-free-training-job-placement" element={<BlogPost />} />
 
             {/* Jobs Section with nested routes */}
             <Route
