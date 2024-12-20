@@ -145,17 +145,6 @@ const UnlockCareerOpportunitiesPage = () => {
   return (
     <div className="min-h-screen bg-blue-100 p-8">
       <div className="max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-lg">
-      <div class="ad-container">
-  <ins class="adsbygoogle"
-       style="display:block"
-       data-ad-client="ca-pub-9267925924326749"
-       data-ad-slot="1234567890"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>
-       (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-</div>
 
         <h1 className="text-5xl font-bold text-blue-800 mb-8">Unlock Career Opportunities</h1>
         <form onSubmit={handleFormSubmit} className="space-y-6">
