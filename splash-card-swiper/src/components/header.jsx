@@ -8,7 +8,7 @@ const Header = () => {
       <nav className="py-4 px-8 flex justify-between items-center">
         {/* Add left padding */}
         <Link>
-          <img src="/logo.png" className="h-20 ml-4" /> {/* Add padding before the logo */}
+          <img src="../../public/logo.png" className="h-20 ml-4" /> {/* Add padding before the logo */}
         </Link>
         
         {/* Position button on the far right */}
