@@ -3,8 +3,6 @@ import Banner from "../components/Banner";
 import React, { useEffect, useState } from 'react'
 import Jobs from "./Jobs";
 import Sidebar from "../sidebar/Sidebar";
-import Newsletter from "../components/Newsletter";
-
 
 const LandingPage = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -115,7 +113,6 @@ const LandingPage = () => {
             ) : ""
           }       
           </div>
-        <div className="text-primary bg-white p-4 rounded"><Newsletter/></div>
       </div>
     </div>
   )

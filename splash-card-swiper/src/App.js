@@ -37,7 +37,7 @@ const App = () => {
             {/* Hamburger Menu for Small Screens */}
             <button
               className="text-white md:hidden focus:outline-none"
-              onClick={() => setMenuOpen((prev) => !prev)}
+              onClick={() => setMenuOpen(true)}
               aria-label="Toggle menu"
             >
               <svg
@@ -56,69 +56,105 @@ const App = () => {
               </svg>
             </button>
 
-            {/* Navigation Links */}
-            <nav
-              className={`${
-                menuOpen ? "block" : "hidden"
-              } md:flex md:space-x-6 text-sm font-medium`}
-            >
+            {/* Navigation Links for larger screens */}
+            <nav className="hidden md:flex md:space-x-6 text-sm font-medium">
               <Link
                 to="/books"
-                className="block md:inline text-gray-100 hover:text-orange-300 transition-colors"
+                className="text-gray-100 hover:text-orange-300 transition-colors"
               >
                 Books
               </Link>
               <Link
                 to="/skill-matching"
-                className="block md:inline text-gray-100 hover:text-orange-300 transition-colors"
+                className="text-gray-100 hover:text-orange-300 transition-colors"
               >
                 Skill Matching
               </Link>
               <Link
                 to="/jobs"
-                className="block md:inline text-gray-100 hover:text-orange-300 transition-colors"
+                className="text-gray-100 hover:text-orange-300 transition-colors"
               >
                 Jobs
               </Link>
               <Link
                 to="/resume"
-                className="block md:inline text-gray-100 hover:text-orange-300 transition-colors"
+                className="text-gray-100 hover:text-orange-300 transition-colors"
               >
                 Resume
               </Link>
             </nav>
           </div>
+
+          {/* Slide-in Menu for Small Screens */}
+          {menuOpen && (
+            <div className="fixed top-15 right-0 w-2/3 h-1/2 bg-white shadow-lg z-50">
+              <button
+                className="absolute top-4 right-4 text-gray-700 focus:outline-none"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+
+              <nav className="mt-16 flex flex-col items-start space-y-4 px-6">
+                <Link
+                  to="/books"
+                  className="text-blue-600 hover:text-orange-500 text-lg"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Books
+                </Link>
+                <Link
+                  to="/skill-matching"
+                  className="text-blue-600 hover:text-orange-500 text-lg"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Skill Matching
+                </Link>
+                <Link
+                  to="/jobs"
+                  className="text-blue-600 hover:text-orange-500 text-lg"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Jobs
+                </Link>
+                <Link
+                  to="/resume"
+                  className="text-blue-600 hover:text-orange-500 text-lg"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Resume
+                </Link>
+              </nav>
+            </div>
+          )}
         </header>
 
         {/* Main Content */}
         <main className="flex-grow">
           <Routes>
-            {/* Splash Screen */}
             <Route path="/" element={<SplashScreen />} />
-
-            {/* Unlock Career Opportunities Page */}
             <Route path="/skill-matching" element={<UnlockCareerOpportunitiesPage />} />
-
-            {/* Master Skills Page */}
             <Route path="/masterskills" element={<MasterSkillsPage />} />
-
-            {/* Book Recommendations Page */}
             <Route path="/books" element={<BookList />} />
-
-            {/* Book Collection Page */}
             <Route path="/book-collection" element={<BookCollection />} />
-
-            {/* Resume Page */}
             <Route path="/resume" element={<Resume />} />
-
             <Route path="/blog/blog-3-free-training-job-placement" element={<BlogPost />} />
-
-            {/* Jobs Section with nested routes */}
-            <Route
-              path="/jobs"
-              element={<AppLayout />} // Render AppLayout for the jobs section
-            >
-              <Route index element={<LandingPage />} /> {/* Default route */}
+            <Route path="/jobs" element={<AppLayout />}>
+              <Route index element={<LandingPage />} />
               <Route path="about" element={<About />} />
               <Route path="vjobs" element={<JobListing />} />
               <Route path="job/:id" element={<JobPage />} />
@@ -128,13 +164,9 @@ const App = () => {
               <Route path="salary" element={<Salary />} />
               <Route path="edit-jobs/:id" element={<UpdateJobs />} />
             </Route>
-
-            {/* Contact Page */}
             <Route path="/contact" element={<div>Contact Page</div>} />
           </Routes>
         </main>
-
-
       </div>
     </Router>
   );
