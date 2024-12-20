@@ -66,6 +66,18 @@ const MasterSkillsPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-lg p-6">
+      <div class="ad-container">
+  <ins class="adsbygoogle"
+       style="display:block"
+       data-ad-client="ca-pub-9267925924326749"
+       data-ad-slot="1234567890"
+       data-ad-format="auto"
+       data-full-width-responsive="true"></ins>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+</div>
+
         <h1 className="text-4xl font-bold text-blue-800 mb-8">Your Top 3 Career Skills to Land You a Job in 2024/2025</h1>
         
         <div className="mb-8">
