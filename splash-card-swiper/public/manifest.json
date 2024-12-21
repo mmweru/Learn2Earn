@@ -13,9 +13,9 @@
       "sizes": "192x192"
     },
     {
-      "src": "250.png",
+      "src": "512.png",
       "type": "image/png",
-      "sizes": "250x250"
+      "sizes": "512x512"
     }
   ],
   "start_url": ".",
