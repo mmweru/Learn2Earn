@@ -146,8 +146,10 @@ const UnlockCareerOpportunitiesPage = () => {
     <div className="min-h-screen bg-blue-100 p-8">
       <div className="max-w-5xl mx-auto bg-white p-6 rounded-lg shadow-lg">
 
-        <h1 className="text-5xl font-bold text-blue-800 mb-8">Unlock Career Opportunities</h1>
-        <form onSubmit={handleFormSubmit} className="space-y-6">
+      <h1 className="text-2xl sm:text-3xl lg:text-5xl font-bold text-blue-800 mb-6 lg:mb-8 text-center">
+          Unlock Career Opportunities
+        </h1>
+          <form onSubmit={handleFormSubmit} className="space-y-6">
           <div className="mb-6">
             <label className="block text-blue-800 font-bold mb-2">Your Profession:</label>
             <select
