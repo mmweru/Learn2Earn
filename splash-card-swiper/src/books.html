@@ -4,6 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Open Library Book Search</title>
+    <style>
+        /* Add responsive styles */
+        .book {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .book img {
+            max-width: 100px;
+            display: block;
+        }
+        @media (max-width: 600px) {
+            .book:nth-child(n+6) {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <input id="input" placeholder="Search for books...">
@@ -13,7 +30,7 @@
 
     <script>
         function getBooks() {
-            document.getElementById("output").innerHTML = "";  // Clear previous results
+            document.getElementById("output").innerHTML = ""; // Clear previous results
 
             // Fetch books from Open Library API based on search input
             fetch("https://openlibrary.org/search.json?q=" + document.getElementById("input").value)
@@ -22,7 +39,7 @@
                     const books = data.docs;
                     
                     // Loop through the first 20 books in the search result
-                    books.slice(0, 20).forEach(book => {
+                    books.slice(0, 20).forEach((book, index) => {
                         const title = book.title || "No title available";
                         const author = book.author_name ? book.author_name[0] : "Unknown author";
                         const isbn = book.isbn ? book.isbn[0] : null;
@@ -32,7 +49,7 @@
 
                         // Append the book information to the output div
                         document.getElementById("output").innerHTML += `
-                            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
+                            <div class="book">
                                 <h2>${title}</h2>
                                 <p><strong>Author:</strong> ${author}</p>
                                 ${coverImage}
