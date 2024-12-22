@@ -11,12 +11,6 @@ const AppLayout = () => {
         <Navigation/>
         <Outlet />
       </main>
-      <div className="p-10 text-center bg-gray-800 text-white mt-10">
-        Made with ❤️ MagicCoder <br></br>
-        <a href="https://www.learn2earn.study/privacy-policy.html" target="_blank">
-          Privacy Policy
-        </a>
-      </div>
     </div>
   );
 }

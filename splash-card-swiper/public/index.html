@@ -2,33 +2,61 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap"
       rel="stylesheet"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="msvalidate.01" content="C64894F6FAFEB4D367D8B253F9821C5A" />
-    <meta name="theme-color" content="#000000" />
-    <meta name="google-site-verification" content="GJF6WlLA8m4mXNVuQIvIUkwEdwJ5vLwcb9AAOqqZugI" />
-
-    <!-- Updated Meta Description -->
-    <meta
-      name="description"
-      content="Create professional resumes and explore free career-building resources. Learn expert tips, build a standout CV, and discover job opportunities tailored for you."
-    />
-
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    
-    <!-- Updated Title -->
-    <title>Learn2Earn | Educational Website on your skills | Professional Resumes and Career Resources | Free Tools</title>
+    <title>Learn2Earn | Educational Website</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      #root {
+        flex: 1; /* Pushes footer to the bottom */
+      }
+
+      footer {
+        background-color: #1e3a8a; /* Tailwind's blue-900 color */
+        color: white;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+        position: relative;
+      }
+
+      footer a {
+        color: #ffffff;
+        text-decoration: underline;
+        margin-left: 5px;
+      }
+
+      footer a:hover {
+        text-decoration: none;
+        color: #d1d5db; /* Tailwind's gray-300 color for hover effect */
+      }
+    </style>
   </head>
   <body>
     <script
       src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
       type="module"
     ></script>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Your main content goes here -->
+    </div>
+    <footer>
+      Made with ❤️ MagicCoder
+      <a href="https://www.learn2earn.study/privacy-policy.html" target="_blank">
+        Privacy Policy
+      </a>
+    </footer>
   </body>
 </html>
