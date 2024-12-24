@@ -12,7 +12,6 @@ const ResumePage = () => {
           border: 'none',
         }}
       ></iframe>
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9267925924326749" crossorigin="anonymous"></script>  
     </div>
   );
 };
