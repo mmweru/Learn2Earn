@@ -9,14 +9,7 @@ import "./App.css"; // Include additional styles if necessary
 import AppLayout from "./layouts/app-layout";
 import LandingPage from "./pages/landing";
 import Onboarding from "./pages/onboarding";
-import JobListing from "./pages/job-listing";
-import JobPage from "./pages/job";
-import PostJob from "./pages/post-job";
 import SavedJobs from "./pages/saved-jobs";
-import MyJobs from "./pages/my-jobs";
-import About from "./pages/about";
-import Salary from "./pages/salary";
-import UpdateJobs from "./pages/UpdateJobs";
 import Resume from "./components/ResumePage";
 import BlogPost from './components/BlogPost'; // Adjust path as needed
 
@@ -129,7 +122,7 @@ const App = () => {
                   className="text-blue-600 hover:text-orange-500 text-lg"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Jobs
+                 SavedJobs
                 </Link>
                 <Link
                   to="/resume"
@@ -153,7 +146,7 @@ const App = () => {
             <Route path="/book-collection" element={<BookCollection />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/blog/blog-3-free-training-job-placement" element={<BlogPost />} />
-            <Route path="/jobs" element={<AppLayout />}>
+            {/* <Route path="/jobs" element={<AppLayout />}>
               <Route index element={<LandingPage />} />
               <Route path="about" element={<About />} />
               <Route path="vjobs" element={<JobListing />} />
@@ -163,7 +156,8 @@ const App = () => {
               <Route path="my-jobs" element={<MyJobs />} />
               <Route path="salary" element={<Salary />} />
               <Route path="edit-jobs/:id" element={<UpdateJobs />} />
-            </Route>
+            </Route> */}
+            <Route path="/jobs" element={<SavedJobs/>} />
             <Route path="/contact" element={<div>Contact Page</div>} />
           </Routes>
         </main>
