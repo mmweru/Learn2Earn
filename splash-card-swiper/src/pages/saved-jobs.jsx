@@ -3,15 +3,15 @@ import "tailwindcss/tailwind.css";
 import "./saved.css";
 
 const platformIcons = {
-  LinkedIn: "https://cdn-icons-png.flaticon.com/512/174/174857.png", // LinkedIn logo
-  Indeed: "https://static.indeed.com/favicon.ico", // Indeed logo (alternative link)
-  Upwork: "https://cdn.worldvectorlogo.com/logos/upwork.svg", // Upwork logo
-  Fiverr: "https://cdn.worldvectorlogo.com/logos/fiverr-1.svg", // Fiverr logo
-  FlexJobs: "https://www.flexjobs.com/favicon.ico", // FlexJobs favicon
-  Uncareers: "https://uncareer.net/favicon.ico", // Uncareers favicon (alternative link)
-  Microsoft: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg", // Microsoft logo
-  Google: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", // Google logo
-  Amazon: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg", // Amazon logo
+  LinkedIn: "https://cdn-icons-png.flaticon.com/512/174/174857.png",
+  Indeed: "https://static.indeed.com/favicon.ico",
+  Upwork: "https://cdn.worldvectorlogo.com/logos/upwork.svg",
+  Fiverr: "https://cdn.worldvectorlogo.com/logos/fiverr-1.svg",
+  FlexJobs: "https://www.flexjobs.com/favicon.ico",
+  Uncareers: "https://uncareer.net/favicon.ico",
+  Microsoft: "https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg",
+  Google: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+  Amazon: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg",
 };
 
 const predefinedJobs = [
@@ -64,15 +64,27 @@ const SavedJobs = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-lg p-6">
-        <h1 className="text-4xl font-bold text-blue-800 mb-8">Job Search</h1>
+        <header className="max-w-screen-2xl container mx-auto xl:px-24 px-4">
+          <nav className="flex justify-between items-center py-6">
+            <a href="/" className="flex items-center gap-2 text-2xl text-black">
+              <svg xmlns="http://www.w3.org/2000/svg" width="29" height="30" viewBox="0 0 29 30" fill="none">
+                <circle cx="12.0143" cy="12.5143" r="12.0143" fill="#3575E2" fillOpacity="0.4" />
+                <circle cx="16.9857" cy="17.4857" r="12.0143" fill="#3575E2" fillOpacity="0.4" />
+              </svg>
+              <span>Job Portal</span>
+            </a>
+          </nav>
+        </header>
+
+        <h1 className="text-4xl font-bold text-blue-800 text-center mb-8">Find Your Next Dream Job</h1>
 
         {/* Search Input */}
-        <div className="mb-8 flex space-x-4">
+        <div className="mb-8 flex flex-col items-center space-y-4 w-full">
           <input
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="flex-grow p-4 border border-gray-300 rounded-md bg-gray-50 text-gray-800"
+            className="w-full md:w-2/3 lg:w-1/2 p-4 border border-gray-300 rounded-md bg-gray-50 text-gray-800"
             placeholder="Search for jobs (e.g., Software Engineer)"
           />
           <button
@@ -86,10 +98,7 @@ const SavedJobs = () => {
         {/* Job Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {jobs.map((job, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition"
-            >
+            <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition">
               <h3 className="text-2xl font-semibold text-blue-800">{job.title}</h3>
               <p className="text-gray-600 mt-2">{job.description}</p>
 
