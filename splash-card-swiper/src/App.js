@@ -146,17 +146,6 @@ const App = () => {
             <Route path="/book-collection" element={<BookCollection />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/blog/blog-3-free-training-job-placement" element={<BlogPost />} />
-            {/* <Route path="/jobs" element={<AppLayout />}>
-              <Route index element={<LandingPage />} />
-              <Route path="about" element={<About />} />
-              <Route path="vjobs" element={<JobListing />} />
-              <Route path="job/:id" element={<JobPage />} />
-              <Route path="post-job" element={<PostJob />} />
-              <Route path="saved-job" element={<SavedJobs />} />
-              <Route path="my-jobs" element={<MyJobs />} />
-              <Route path="salary" element={<Salary />} />
-              <Route path="edit-jobs/:id" element={<UpdateJobs />} />
-            </Route> */}
             <Route path="/jobs" element={<SavedJobs/>} />
             <Route path="/contact" element={<div>Contact Page</div>} />
           </Routes>
