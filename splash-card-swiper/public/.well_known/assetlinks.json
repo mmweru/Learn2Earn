@@ -1,9 +1,19 @@
-[{
-  "relation": ["delegate_permission/common.get_login_creds"],
-  "target" : { "namespace": "android_app", "package_name": "study.learn2earn.www.twa",
-               "sha256_cert_fingerprints": ["77:0A:24:02:8A:C9:74:3C:77:DE:EC:E9:E2:25:7C:4F:9D:48:36:6D:BA:EF:AE:AD:66:83:3F:B0:C0:81:84:4F"] }
-},
-{
-  "relation": ["delegate_permission/common.get_login_creds"],
-  "target" : { "namespace": "web", "site": "https://www.learn2study.study" }
-}]
+[
+  {
+    "relation": ["delegate_permission/common.get_login_creds"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "study.learn2earn.www.twa",
+      "sha256_cert_fingerprints": [
+        "77:0A:24:02:8A:C9:74:3C:77:DE:EC:E9:E2:25:7C:4F:9D:48:36:6D:BA:EF:AE:AD:66:83:3F:B0:C0:81:84:4F"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.get_login_creds"],
+    "target": {
+      "namespace": "web",
+      "site": "https://www.learn2earn.study"
+    }
+  }
+]
