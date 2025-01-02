@@ -136,7 +136,7 @@ const App = () => {
                   className="text-blue-600 hover:text-orange-500 text-lg"
                   onClick={() => setMenuOpen(false)}
                 >
-                  SavedJobs
+                  Jobs
                 </Link>
                 <Link
                   to="/resume"
