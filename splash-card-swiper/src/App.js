@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import BookList from "./components/BookList";
 import BookCollection from "./components/BookCollection";
@@ -15,6 +15,20 @@ import BlogPost from './components/BlogPost'; // Adjust path as needed
 
 const App = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+
+  useEffect(() => {
+    // Dynamically load the AdSense script
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9267925924326749";
+    script.crossOrigin = "anonymous";
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on component unmount
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <Router>
@@ -122,7 +136,7 @@ const App = () => {
                   className="text-blue-600 hover:text-orange-500 text-lg"
                   onClick={() => setMenuOpen(false)}
                 >
-                 SavedJobs
+                  SavedJobs
                 </Link>
                 <Link
                   to="/resume"
@@ -146,7 +160,7 @@ const App = () => {
             <Route path="/book-collection" element={<BookCollection />} />
             <Route path="/resume" element={<Resume />} />
             <Route path="/blog/blog-3-free-training-job-placement" element={<BlogPost />} />
-            <Route path="/jobs" element={<SavedJobs/>} />
+            <Route path="/jobs" element={<SavedJobs />} />
             <Route path="/contact" element={<div>Contact Page</div>} />
           </Routes>
         </main>
